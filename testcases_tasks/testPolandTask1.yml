@@ -1,0 +1,114 @@
+Exercise 1:
+Imagine that you are joining a team which is working on testing functionality of
+Hangouts in the Gmail web client (lower left corner of the screen, middle icon -
+"Hangouts conversations").
+- propose the most important test cases in your opinion (maximum 20 is enough
+title and short description)
+- describe in detail the 3 selected test cases (preconditions, steps, expected
+results, etc.) 
+----------------------------------------------------------------------------------------
+My tasks you can find below:
+
+Title: Check 'Chat' section
+Steps:
+ - Open gmail web client with existing google account
+ - Check presents of chat section under main mail links
+Expected: Chat section presents under all 'Mail' links
+
+Title: Collapse/Expand chat Check
+Steps:
+ - Open gmail client with existing google account
+ - Check 'Chat' section for collapse/expand ability
+ Expected: Chat section collapsed/expanded successfully
+
+Title: Check 'Start a chat' points
+Steps:
+ - Open gmail client with existing google account
+ - Under 'Chat' section click on '+' sign
+ - Check presents of next points: 'Start group conversation', 'Create space', 'Browse spaces', 'Find a bot', 'Message requests'
+ Expected: All main points are present and can be selected
+
+
+Title: Add user to the chat
+Steps:
+ - Open gmail client with existing google account
+ - Under 'Chat' section click on '+' sign
+ - Enter person name, e.g: 'testUser'
+ - Click at found user to add it to the current chat
+ Expected: User can be found and add to the chat list
+
+Title: Check creation of 'Conversation group' point 
+Steps:
+ - Open gmail client with existing google account
+ - Under 'Chat' section click on '+' sign
+ - Select 'Start group conversation' point
+ - Check that 'Start group conversation' appears with a users list
+ - Click on any users from the list - 3,4 users
+ - Accept group conversation by 'Start DM with selected users' blue checkmark button click
+ Expected: Selected users added, conversation chat opens
+
+Title: Check creation of 'Create a spase' point
+Steps:
+ - Open gmail client with existing google account
+ - Under 'Chat' section click on '+' sign
+ - Select 'Create space' point
+ - Fill all necessary fields inside the 'Create a space' window
+ - Click 'Create' button
+ Expected: A new space created
+
+Title: Check creation of 'Browse space' point
+Steps:
+ - Open gmail client with existing google account
+ - Under 'Chat' section click on '+' sign
+ - Select 'Browse space' point
+ - Inside input field type, e.g 'Wroclaw free'
+ - Hover mouse on the found space and check presents of two controls: 'Preview' and '+' sign
+ Expected: Space found, controls are present near the current title of the space
+
+Title: Check 'Block' user
+Steps:
+ - Open gmail client with existing google account
+ - Make mouse hover on any user from the list and click on 'three dots' icon near the user name
+ - From pop-up menu select 'Block' point and confirm your selection
+ Expected: Selected user from the list has been blocked successfully
+
+Title: Check 'Delete conversation'
+Steps:
+ - Open gmail client with existing google account
+ - Make mouse hover on any user from the list and click on 'three dots' icon near the user name
+ - From pop-up menu select 'Delete conversation' point and confirm your selection
+ Expected: User have been deleted successfully 
+
+Title: Check actions buttons
+Steps:
+ - Open gmail client with existing google account
+ - Select from the user list any user by mouse double click
+ - Click on 'action' button icon inside the message window
+ - Use any from existing action icons to make an action, e.g 'Upload file' button
+ - Select any file or picture which will send to the receiver
+ - Click 'Send' narrow or 'Enter' button to send the message with attachments
+ Expected: Actions button appears and can be use. Message with attachments have been sent
+
+Title: Check send/receive functionality
+Steps:
+ - Open gmail client with existing google account
+ - Select from the user list any user by mouse double click
+ - Send any message to selected user
+ - Check that 'events?...' with POST ok status present into the 'Network' tab of browser dev.mode
+ - Wait until user icon will appear near sent message
+ Expected: Messege have been sent to selected user, appropriate event present into the 'Network' tab with 200ok POST status code
+ User icon appears near the sent message, which means successfully delivery
+
+Title: Check 'Full screen' option
+Steps:
+ - Open gmail client with existing google account
+ - Select from the user list any user by mouse double click
+ - Inside the message window, right up corner, click on 'Open chat in full screen' icon
+Expected: Separete window appear in a full screen mode
+
+Title: Check title name for selected chat window
+Steps:
+ - Open gmail client with existing google account
+ - Select from the user list any user by mouse double click
+ - Compare selected user name with name on the top of chat window
+ Expected: User name totally the same like on the top of chat window

@@ -1,0 +1,96 @@
+Exercise 2:
+Imagine the team is working on a new chat box functionality - whether or not
+the sent message has been read. The test team received a brief documentation of the new one
+functionalities (user story):
+- USER1 sends a message to USER2 when the message has been sent successfully
+(confirmation from the server), on the USER1 side under the sent message
+the label "sent" appears
+- when USER2 was notified that it had received a new message from USER1
+(confirmation from the server), on the USER1 side under the sent message
+a new label appears - "delivered"
+- when USER2 opened a conversation window with USER1 and a message was sent to him
+displayed, on the USER1 side a new label appears under the sent message -
+"Read"
+- when USER1 is sending a message to USER2 and USER2 has a window open at this time
+conversations with USER1, USER1 will not see the "read" label until it occurs
+one of the following conditions:
+- USER2 will interact with the conversation window (e.g. start writing a message
+to USER1) - 10 seconds will elapse after the message is displayed in the USER2 window
+Suggest detailed (preconditions, steps, expected results, etc.) test cases
+for new functionality (user story acceptance tests).
+---------------------------------------------------------------------------------------------------------
+My tasks you can find below:
+Test Suite: Chat box new functionality
+
+Title: Check server received confirmation message
+IC: Make sure that your browser configured with selected 'Fetch/XHR' filter under the 'Network' tab
+Steps:
+ - Login under User1 into the 'chatBox' app
+ - Send any message to the User2
+ - From browswer network tab check POST method from the server
+ Expected: Message returns confirmation from POST request about successfully sending
+
+Title: Check 'Sent' label presents
+IC: Login under User1 into the 'chatBox' app
+Steps:
+ - From the chat window send message to the User2
+ - Check 'Sent' label under current message
+Expected: Label 'Sent' appears under sent message
+
+Title: Check autostatus behave
+IC: Login under User1 into the 'chatBox' app
+Steps:
+ - From the chat window type message to the User2 but not send it
+ - Check 'Sent' label under current message
+Expected: Label 'Sent' do not set under prepared message if it not send to the User2
+
+Title: Check 'Delivered' label behave
+IC: Login under User1 into the 'chatBox' app
+Steps:
+ - From the chat window send message to the User2
+ - From browswer network tab check POST method from the server
+ - Check 'Delivered' label presents
+ Expected:  Message returns confirmation from POST request about successfully delivery
+ Label changed to 'Delivered' label under sent message
+
+Title: Check 'Delivered' label behave when server returns errror
+IC: Login under User1 into the 'chatBox' app
+Steps:
+ - From the chat window send message to the User2
+ - From browswer network tab check POST method from the server
+ - Check 'Delivered' label presents
+ Expected:  Message returns confirmation from POST request about server error with 500 status code
+ Label left with 'Sent' status under sent message, no change to 'Delivered' happens 
+
+Title: heck 'Read' label behave
+IC: Login under User1 into the 'chatBox' app
+Steps:
+ - From the chat window send message to the User2
+ - Logout from User1 account
+ - Login under User2 account into the 'chatBox' app
+ - Open message from User1
+ - Logout from User2 account and login under User1 account
+ - Check status label under message with User2
+ Expected: Message label changed to 'Read'
+
+Title: Check 'Read' label for two users chat open
+IC: 
+1) Login under User1 into the 'chatBox' app open chat window with User2
+2) Repeat the same step like in 1 point but for User2 in a new private browser window
+Steps:
+ - For User1 send message to the User2
+ - For User2 open window with chat and check that message came from User1
+ - No need to make any actions with message from User2
+ - Check that label 'Read' doesn't  appear near the sent message for User1
+ Expected: No 'Read' label set into the chat window for User1, only 'Sent' label present instead
+
+Title: Check 'Read' label set for two users chat open
+IC: 
+1) Login under User1 into the 'chatBox' app open chat window with User2
+2) Repeat the same step like in 1 point but for User2 in a new private browser window
+Steps:
+ - For User1 send message to the User2
+ - For User2 open window with chat and check that message came from User1
+ - Start typing into the chat window
+ - Check that label 'Read' appear near the sent message after 10sec for User1
+ Expected: Message label changed to 'Read' status for User1
